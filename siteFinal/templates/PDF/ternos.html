@@ -1,0 +1,47 @@
+{% load bootstrap4 %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale-1, shrindk-to-fit=no">
+    {% bootstrap_css %}
+    <title>Terno</title>
+</head>
+    <body>
+
+        <div class="container">
+            <h1>Detalhes</h1>
+
+            <div class="row">
+                <div class="col-sm-6">
+                <form action="." method="GET" class="form-inline" >
+                    <input type="text" id="search" name="search" class="form-control" placeholder="Buscar">
+                    <input type="submit" class="btn btn-primary" style="margin-left: 10px;" value="Pesquisar">
+                </form>
+                </div>
+            </div>
+            <br>
+
+            <table class="">
+                <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Preço</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for t in ternos %}
+                        <tr>
+                            <td scope="row">{{t.nome}}</td>
+                            <td scope="row">{{t.desc}}</td>
+                            <td scope="row"><p align="center">           {{t.preco}}</p></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+{% bootstrap_javascript jquery='full' %}
+    </body>
+</html>

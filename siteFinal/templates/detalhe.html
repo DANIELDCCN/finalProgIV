@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+    {% block content %}
+
+ <!-- ====== About Start ====== -->
+    <section id="about" class="ud-about">
+      <div class="container">
+        <div class="ud-about-wrapper wow fadeInUp" data-wow-delay=".2s">
+          <div class="ud-about-content-wrapper">
+            <div class="ud-about-content">
+              <span class="tag">Sobre nós</span>
+              <h2>{{ ternos.nome }}</h2>
+              <p>
+                  {{ ternos.desc }}
+              </p>
+                <p>
+                    R${{ ternos.preco }}
+                </p>
+            </div>
+          </div>
+          <div class="ud-about-image">
+            <img alt="about-image" src="{{ ternos.imagem.thumb.url }}"/>
+          </div>
+        </div>
+          <br><br>
+          <a href="{% url 'index' %}" class="">
+                  <h3>Início</h3>
+                </a>
+          <br>
+          {% if user.is_authenticated %}
+
+                <a href="{% url 'terno' %}" class="">
+                  <h3>Gerar PDF</h3>
+                </a>
+
+          {% else %}
+                <h3>Faça <a class="" href="/login">Log in</a> para gerar PDF</h3>
+
+          {% endif %}
+      </div>
+    </section>
+    <!-- ====== About End ====== -->
+    {% endblock %}
+

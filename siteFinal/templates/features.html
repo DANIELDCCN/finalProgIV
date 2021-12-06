@@ -1,0 +1,42 @@
+{% load static %}
+
+<!-- ====== Features Start ====== -->
+    <section id="features" class="ud-features">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-section-title">
+              <span>Produtos</span>
+              <h2>Nossos Produtos</h2>
+              <p>
+                Esses são os ternos de todas as categorias oferecidas pela nossa empresa.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          {% for t in ternos %}
+          <div class="col-xl-3 col-lg-3 col-sm-6">
+            <div class="ud-single-feature wow fadeInUp" data-wow-delay=".1s">
+              <div class="ud-feature-icon">
+                <i class="lni lni-gift"></i>
+              </div>
+              <div class="ud-feature-content">
+                <h3 class="ud-feature-title">{{ t.nome }}</h3>
+                <p class="ud-feature-desc">
+                  {{t.desc}}
+                </p>
+                <p class="ud-feature-desc">
+                  {{t.preco}}
+                </p>
+                <a href="{% url 'detalhe' t.id %}" class="ud-feature-link" "method='post'>
+                  Learn More
+                </a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    <!-- ====== Features End ====== -->
